@@ -16,10 +16,6 @@ namespace TimetablingSystem1.Models
 
         public IEnumerable<Facility> facilityEdit { get; set; }
 
-        public IEnumerable<RoomFacility> roomFac { get; set; }
-
-        public int roomfacs { get; set; }
-
         public bool facilityIsChecked { get; set; }
 
         public Building building { get; set; }

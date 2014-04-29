@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TimetablingSystem1.Models;
 
+
 namespace TimetablingSystem1.Controllers
 {
     public class RoundController : Controller
@@ -18,7 +19,7 @@ namespace TimetablingSystem1.Controllers
 
         public ActionResult Index()
         {
-            
+            RoundModel model = new RoundModel();
             IEnumerable<SelectListItem> selectList = from s in db.Semesters
                                                      select new SelectListItem
                                                      {
@@ -29,9 +30,32 @@ namespace TimetablingSystem1.Controllers
 
                                                      };
             ViewBag.academicDates = new SelectList(selectList, "Value", "Text");
+            //DateTime x = DateTime.Parse("2014-02-04 09:43:01.000");
+            DateTime x;
+
+            IEnumerable<SelectListItem> currentRoundList = from r in db.Rounds join s in db.Semesters on r.SemesterID 
+                                                           equals s.SemesterID
+                                                           where r.EndDate == null
+                                                           select new SelectListItem
+                                                     {
+                                                        Value = (r.RoundID).ToString(),
+                                                        Text = (s.StartYear).ToString() + " - " + (s.StartYear + 1)
+                                                        + " Semester " + (s.SemesterNo).ToString()
+
+                                                     };
+            model.currentRounds = new SelectList(currentRoundList, "Value", "Text");
+
+
+
+
+
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Index(int i)
+        {
 
             return View();
         }
-
     }
 }

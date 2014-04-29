@@ -97,8 +97,12 @@
            
           
           @Html.Label(item.Name)
-              // model.roomFacs = item.FacilityID;
-          @Html.CheckBoxFor(model => model.facilityIsChecked, new { id = item.FacilityID })
+              
+         
+               
+              
+              Model.facilityIsChecked = ViewBag.roomFac.Contains(item.FacilityID);
+              @Html.CheckBoxFor(model => model.facilityIsChecked, new { id = item.FacilityID })
                
     
            }
