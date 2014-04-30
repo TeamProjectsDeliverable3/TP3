@@ -414,6 +414,7 @@
     <Content Include="Views\RoomLookup\Index.cshtml" />
     <Content Include="Views\RoomLookup\Edit.cshtml" />
     <Content Include="Views\Round\Index.cshtml" />
+    <Content Include="Views\AddRequest\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\TimetablingSystem1.dll.config" />
@@ -431,9 +432,6 @@
     <Content Include="Views\Shared\_AnonLayout.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\AddRequest\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\css\" />
