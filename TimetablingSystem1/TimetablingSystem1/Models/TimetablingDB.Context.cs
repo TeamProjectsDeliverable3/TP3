@@ -38,5 +38,18 @@ namespace TimetablingSystem1.Models
         public virtual DbSet<RoomFacility> RoomFacilities { get; set; }
         public virtual DbSet<Round> Rounds { get; set; }
         public virtual DbSet<Semester> Semesters { get; set; }
+        public virtual DbSet<ViewAllocatedRoom> ViewAllocatedRooms { get; set; }
+        public virtual DbSet<ViewBuilding> ViewBuildings { get; set; }
+        public virtual DbSet<ViewDepartment> ViewDepartments { get; set; }
+        public virtual DbSet<ViewFacility> ViewFacilities { get; set; }
+        public virtual DbSet<ViewModule> ViewModules { get; set; }
+        public virtual DbSet<ViewPreferenceRoom> ViewPreferenceRooms { get; set; }
+        public virtual DbSet<ViewRequest> ViewRequests { get; set; }
+        public virtual DbSet<ViewRequestWeek> ViewRequestWeeks { get; set; }
+        public virtual DbSet<ViewRequiredFacility> ViewRequiredFacilities { get; set; }
+        public virtual DbSet<ViewRoom> ViewRooms { get; set; }
+        public virtual DbSet<ViewRoomFacility> ViewRoomFacilities { get; set; }
+        public virtual DbSet<ViewRound> ViewRounds { get; set; }
+        public virtual DbSet<ViewSemester> ViewSemesters { get; set; }
     }
 }

@@ -29,18 +29,8 @@ namespace TimetablingSystem.Controllers
         {
             LoginModel lmodel = new LoginModel();
 
-            var query = from ModuleCode in db.Modules
-                        where ModuleCode.DepartmentCode == "CO"
-                        select ModuleCode;
-
-            //ViewBag.DepartmentCode = new SelectList(query, "ModuleCode", "ModuleCode");
-
-            //ViewBag.DepartmentCode = new SelectList(db.Departments, "DepartmentCode", "DepartmentCode");
-            //ViewBag.DepartmentName = new SelectList(db.Departments, "DepartmentCode", "Name");        
+                   
             ViewBag.Password = new SelectList(db.Departments, "DepartmentCode", "PasswordHash");
-
-        
-
 
 
          var displaydeps = db.Departments.Where(s => s.DepartmentCode != null).ToList();
@@ -67,13 +57,7 @@ namespace TimetablingSystem.Controllers
         public ActionResult Index(LoginModel model)
 
         {
-            /*var query = from s in db.Modules
-                        where s.DepartmentCode == "BS"
-                        select s; */
-
-
-
-           // ViewBag.DepartmentCode = new SelectList(query, "ModuleCode", "ModuleCode");
+           
 
 
 

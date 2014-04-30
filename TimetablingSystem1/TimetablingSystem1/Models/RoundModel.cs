@@ -13,6 +13,8 @@ namespace TimetablingSystem1.Models
 
         public SelectList currentRounds { get; set; }
 
+        public SelectList nonActiveSemesters { get; set; }
+
         public string academicDates { get; set; }
 
         

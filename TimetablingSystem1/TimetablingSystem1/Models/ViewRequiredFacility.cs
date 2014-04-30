@@ -12,18 +12,9 @@ namespace TimetablingSystem1.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Semester
+    public partial class ViewRequiredFacility
     {
-        public Semester()
-        {
-            this.Rounds = new HashSet<Round>();
-        }
-    
-        public int SemesterID { get; set; }
-        public int StartYear { get; set; }
-        public byte SemesterNo { get; set; }
-        public Nullable<bool> IsActive { get; set; }
-    
-        public virtual ICollection<Round> Rounds { get; set; }
+        public int RequestID { get; set; }
+        public int FacilityID { get; set; }
     }
 }
