@@ -5,7 +5,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>View1</h2>
+<h2>View Rounds</h2>
  
 <script type="text/javascript">
     $(document).ready( function () {
@@ -22,7 +22,9 @@
         $.getJSON("@Url.Action("SemesterAPI", "api", null, Request.Url.Scheme)" + '?SemesterID=' + semesterID)
         .done(function (data) {
             console.log(data);
+            var tablestring = "<tr><th>Round |</th><th>Start Date |</th><th>End Date</th></tr>"
             data.forEach(function (entry) {
+                if(entry.round == null){var round = ""}
                 if (entry.RoundCode == "P") { var round = "Priority" }
                 if (entry.RoundCode == "1") { var round = "Round 1" }
                 if (entry.RoundCode == "2") { var round = "Round 2" }
@@ -40,11 +42,15 @@
                     var year = (entry.EndDate).substring(0, 4)
                     enddate = day + "-" + month + "-" + year
                 }
-                if(entry.EndDate == null){enddate = ""}
+                if (entry.EndDate == null) { enddate = "" }
+
+                tablestring += "<tr><td>" + round + " |</td><td>" + startdate + " |</td><td>" + enddate + "</td></tr>"
 
 
-                $("#dataTable").append("<tr><td>"+round+"</td><td>"+startdate+"</td><td>"+enddate+"</td></tr>")
             });
+
+            $("#dataTable").append(tablestring)
+
         })
         .fail(function (jqXHR, textStatus, err) {
                 console.log('Error: ' + err);
@@ -94,11 +100,7 @@
     
 }
 </table>
-<table >
-    <tr><td>Round Code </td><td>Start Date</td></tr>
-   <tr><td> <div id="dataTable"></div> </td></tr>
-
- </table>
+<table id="dataTable"></table>
 
 
     <div>
