@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Timetabling System</title>
+
     @Styles.Render("~/Content/themes/base/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui") 
@@ -19,7 +20,7 @@
     {
         @RenderSection("MyOtherJavascript");
     }
-    <title>@ViewBag.Title - Timetabling System</title>
+    
     <script type="text/javascript">
         $(document).ready(function () {
             $('body').css('opacity', '0').fadeTo(800, 1, 'swing');
@@ -130,6 +131,7 @@
    
     <a href="@Url.Content("~/AddRequest/")">Add Request</a> |
     <a href="@Url.Content("~/RoomLookup/")">Room Lookup</a> |
+    <a href="@Url.Content("~/Round/")">Room Lookup</a> |
     <a href="@Url.Content("~/Logout/")">Logout</a>
   
               
