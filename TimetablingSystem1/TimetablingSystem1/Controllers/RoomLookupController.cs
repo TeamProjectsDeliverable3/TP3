@@ -16,7 +16,7 @@ namespace TimetablingSystem1.Controllers
         // GET: /RoomLookup/
         TimetablingEntities db = new TimetablingEntities();
 
-        public bool isChecked(int roomFac, IEnumerable<RoomFacility> facility)
+        public bool facIsChecked(int roomFac, IEnumerable<RoomFacility> facility)
         {
 
             foreach (var item in facility)
@@ -54,6 +54,7 @@ namespace TimetablingSystem1.Controllers
            // model.facilityIsChecked = true;
 
             List<int> roomFac = (from i in db.RoomFacilities where i.RoomID == id select i.FacilityID).ToList();
+            ViewBag.roomFac = roomFac;
             
            
             

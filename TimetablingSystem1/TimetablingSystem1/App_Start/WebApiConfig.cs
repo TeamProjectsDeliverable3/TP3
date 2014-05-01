@@ -14,6 +14,10 @@ namespace TimetablingSystem1
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling 
+= Newtonsoft.Json.ReferenceLoopHandling.Ignore;
         }
+
     }
 }

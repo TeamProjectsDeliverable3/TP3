@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TimetablingSystem1.Models;
 
+
 namespace TimetablingSystem1.Controllers
 {
     public class RoundController : Controller
@@ -18,7 +19,8 @@ namespace TimetablingSystem1.Controllers
 
         public ActionResult Index()
         {
-            
+            RoundModel model = new RoundModel();
+            model.rounds = new Round();
             IEnumerable<SelectListItem> selectList = from s in db.Semesters
                                                      select new SelectListItem
                                                      {
@@ -30,8 +32,42 @@ namespace TimetablingSystem1.Controllers
                                                      };
             ViewBag.academicDates = new SelectList(selectList, "Value", "Text");
 
+
+            IEnumerable<SelectListItem> currentRoundList = from s in db.Semesters
+                                                           where s.IsActive == true
+                                                           select new SelectListItem
+ 
+                                                     {
+                                                        Value = (s.SemesterID).ToString(),
+                                                        Text = (s.StartYear).ToString() + " - " + (s.StartYear + 1)
+                                                        + " Semester " + (s.SemesterNo).ToString()
+
+                                                     };
+            model.currentRounds = new SelectList(currentRoundList, "Value", "Text");
+
+            IEnumerable<SelectListItem> nonActiveSemesterist = from s in db.Semesters
+                                                           where s.IsActive == false
+                                                           select new SelectListItem
+
+                                                           {
+                                                               Value = (s.SemesterID).ToString(),
+                                                               Text = (s.StartYear).ToString() + " - " + (s.StartYear + 1)
+                                                               + " Semester " + (s.SemesterNo).ToString()
+
+                                                           };
+            model.nonActiveSemesters = new SelectList(nonActiveSemesterist, "Value", "Text");
+
+
+
+
+
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Index(int i)
+        {
+
             return View();
         }
-
     }
 }

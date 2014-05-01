@@ -21,6 +21,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,9 +52,9 @@
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -134,6 +136,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\AddRequestController.cs" />
+    <Compile Include="Controllers\API\SemesterAPIController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\loginController.cs" />
     <Compile Include="Controllers\logoutController.cs" />
@@ -147,16 +150,16 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AddRequestModel.cs" />
     <Compile Include="Models\AllocatedRoom.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Building.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Department.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Facility.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Model1.cs">
@@ -165,33 +168,33 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Module.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PreferenceRoom.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Request.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RequestWeek.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RequiredFacility.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Room.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RoomFacility.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RoomLookupModel.cs" />
     <Compile Include="Models\Round.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RoundModel.cs" />
     <Compile Include="Models\Semester.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TimetablingDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -207,6 +210,45 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TimetablingDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewAllocatedRoom.cs">
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewBuilding.cs">
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewDepartment.cs">
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewFacility.cs">
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModule.cs">
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewPreferenceRoom.cs">
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewRequest.cs">
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewRequestWeek.cs">
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewRequiredFacility.cs">
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewRoom.cs">
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewRoomFacility.cs">
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewRound.cs">
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewSemester.cs">
+      <DependentUpon>TimetablingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -361,7 +403,9 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -374,6 +418,7 @@
     <Content Include="Views\RoomLookup\Index.cshtml" />
     <Content Include="Views\RoomLookup\Edit.cshtml" />
     <Content Include="Views\Round\Index.cshtml" />
+    <Content Include="Views\AddRequest\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\TimetablingSystem1.dll.config" />
@@ -391,9 +436,6 @@
     <Content Include="Views\Shared\_AnonLayout.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\AddRequest\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\css\" />
@@ -430,6 +472,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

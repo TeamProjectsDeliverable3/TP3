@@ -5,14 +5,133 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Timetabling System</title>
-  @* @Scripts.Render("~/bundles/jqueryui") 
-    @Scripts.Render("~/bundles/jquery") *@
+
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui") 
+   
+    <link rel="stylesheet" type="text/css" href="http://co-project.lboro.ac.uk/cojb8/test/logon.css">
+    <link rel="stylesheet" type="text/css" href="http://co-project.lboro.ac.uk/cojb8/test/css/tabbed.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="http://co-project.lboro.ac.uk/cojb8/test/demo/demo.css" media="screen" />
+    <link rel="icon" type="image/ico" href="http://co-project.lboro.ac.uk/cojb8/test/favicon.ico" />
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    @if (IsSectionDefined("MyOtherJavascript"))
+    {
+        @RenderSection("MyOtherJavascript");
+    }
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('body').css('opacity', '0').fadeTo(800, 1, 'swing');
+        });
+
+
+
+        $(document).ready(function () {
+
+            $("#sizeUp").click(function () {
+
+                $("body").css("font-size", "115%");
+
+            });
+
+            $("#sizeUp").click(function () {
+
+                $("p b").css("font-size", "115%");
+
+            });
+
+            $("#sizeUp").click(function () {
+
+                $("label.tabs").css("width", "15%");
+
+            });
+
+            $("#sizeUp").click(function () {
+
+                $("label.tabs").css("font-size", "105%");
+
+            });
+
+
+
+
+
+            $("#normal").click(function () {
+
+                $("body").css("font-size", "95%");
+
+            })
+
+            $("#normal").click(function () {
+
+                $("p b").css("font-size", "100%");
+
+            })
+
+            $("#normal").click(function () {
+
+                $("label.tabs").css("width", "185px");
+
+            });
+
+            $("#normal").click(function () {
+
+                $("label.tabs").css("font-size", "95%");
+
+            });
+
+            $("#normal").click(function () {
+
+                $(".title.large").css("font-size", "28px");
+
+            });
+
+
+            $("#sizeDown").click(function () {
+
+                $("body").css("font-size", "75%");
+
+            })
+
+            $("#sizeDown").click(function () {
+
+                $("p b").css("font-size", "75%");
+
+            })
+
+            $("#sizeDown").click(function () {
+
+                $("label.tabs").css("width", "10%");
+
+            });
+
+            $("#sizeDown").click(function () {
+
+                $("label.tabs").css("font-size", "85%");
+
+            })
+
+            $("#sizeDown").click(function () {
+
+                $(".title.large").css("font-size", "23.8px");
+
+            });
+
+
+
+
+        });
+
+    </script>
     
 </head>
 <body>
    
     <a href="@Url.Content("~/AddRequest/")">Add Request</a> |
     <a href="@Url.Content("~/RoomLookup/")">Room Lookup</a> |
+    <a href="@Url.Content("~/Round/")">Room Lookup</a> |
     <a href="@Url.Content("~/Logout/")">Logout</a>
   
               
